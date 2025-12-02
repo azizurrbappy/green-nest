@@ -3,12 +3,12 @@ import React from 'react';
 const PlantCareTips = () => {
   return (
     <>
-      <section className="py-12 px-4">
-        <div className="mb-10">
+      <section className="mt-20 px-4">
+        <div className="mb-12">
           <h2 className="text-center text-3xl font-bold mb-3">
             Plant Care Tips
           </h2>
-          <div className="w-30 mx-auto border-3 border-[#65A15A]"></div>
+          <div className="w-30 mx-auto border-3 border-[#65A15A] rounded-full"></div>
         </div>
 
         <div className="max-w-6xl mx-auto text-center">
@@ -19,7 +19,7 @@ const PlantCareTips = () => {
                 Proper Watering
               </h3>
               <p className="text-gray-600">
-                Water when the top inch of soil feels dry. Avoid overwatering.
+                Water when the top inch of soil feels dry. Avoid over watering.
               </p>
             </div>
             <div className="p-6 bg-white rounded-2xl shadow hover:scale-105 transition">

@@ -1,22 +1,50 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { Rating, Star } from '@smastrom/react-rating';
 
-const TopRatedPlant = ({ image, title, price, rating, id }) => {
+import '@smastrom/react-rating/style.css';
+
+const TopRatedPlant = ({ image, title, price, rating, id, description }) => {
+  const ratingStyle = {
+    itemShapes: Star,
+    activeFillColor: '#65a15a',
+    inactiveFillColor: '#d1d5db',
+  };
+
   return (
     <>
       <div className="card bg-base-100 w-[296px] shadow-sm">
         <figure
           style={{ backgroundImage: `url(${image})` }}
-          className={`h-[295px] bg-cover bg-center`}
+          className={`h-[230px] bg-cover bg-center`}
         ></figure>
-        <div className="card-body py-5 px-4">
-          <h2 className="card-title mx-auto uppercase text-base">{title}</h2>
-          <div className="font-semibold flex justify-between items-center">
+        <div className="card-body py-5 px-4 ">
+          <div className="flex justify-between items-center">
+            <h2 className="card-title uppercase text-base">{title}</h2>
+
+            <h4 className="text-[#65A15A] card-title">৳{price}</h4>
+          </div>
+
+          <div className="flex justify-between items-center gap-1">
+            <Rating
+              style={{ maxWidth: 110, gap: '6px' }}
+              value={Number(rating)}
+              itemStyles={ratingStyle}
+              readOnly
+            />
+
+            <p className="text-sm font-semibold">({rating})</p>
+          </div>
+
+          <p>{description}</p>
+
+          {/* <div className="font-semibold flex justify-between items-center">
             <p>
               Price: <span className="text-[#65A15A]">৳{price}</span>
             </p>
             <p className="text-right">Rating: {rating}</p>
-          </div>
+          </div> */}
+
           <div className="card-actions justify-end">
             <Link
               to={`/plant/${id}`}

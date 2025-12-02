@@ -15,6 +15,9 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
+        <NavLink to="/plants">All Plants</NavLink>
+      </li>
+      <li>
         <NavLink to="/about-us">About Us</NavLink>
       </li>
       <li>
@@ -23,15 +26,12 @@ const Navbar = () => {
       <li>
         <NavLink to="/contact-us">Contact Us</NavLink>
       </li>
-      <li>
-        <NavLink to="/plants">All Plants</NavLink>
-      </li>
     </>
   );
 
   return (
     <>
-      <div className="bg-base-100 shadow-sm w-full fixed top-0 z-50">
+      <div className="bg-base-100 shadow-sm fixed top-0 z-50 w-full">
         <Container className="navbar max-sm:px-4">
           <div className="navbar-start">
             <div className="dropdown space-x-3">

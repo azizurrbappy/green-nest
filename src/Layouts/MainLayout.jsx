@@ -8,7 +8,7 @@ const MainLayout = () => {
     <>
       <section className="flex flex-col h-screen">
         <Navbar></Navbar>
-        <section className="flex-1">
+        <section className="flex-1 mt-15">
           <Outlet></Outlet>
         </section>
         <Footer></Footer>

@@ -18,6 +18,7 @@ const TopRatedPlants = () => {
                 image={plant.image}
                 title={plant.plantName}
                 price={plant.price}
+                description={plant.description}
                 rating={plant.rating}
                 id={plant.plantId}
               ></TopRatedPlant>
