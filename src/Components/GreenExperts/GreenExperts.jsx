@@ -6,7 +6,7 @@ const GreenExperts = () => {
 
   return (
     <>
-      <section className="py-12 px-4">
+      <section className="mt-30 px-4">
         <div className="mb-10 text-center">
           <h2 className="text-center text-3xl font-bold mb-3">
             Meet Our Green Experts
@@ -14,7 +14,7 @@ const GreenExperts = () => {
           <p className="text-gray-600 my-2">
             Our plant care professionals are here to guide your green journey 🌿
           </p>
-          <div className="w-30 mx-auto border-3 border-[#65A15A]"></div>
+          <div className="w-30 mx-auto border-3 border-[#65A15A] rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-6 lg:px-16">

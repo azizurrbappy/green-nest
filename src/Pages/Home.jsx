@@ -7,6 +7,7 @@ import TopRatedPlants from '../Components/TopRatedPlants/TopRatedPlants';
 import PlantCareTips from '../Components/PlantCareTips/PlantCareTips';
 import GreenExperts from '../Components/GreenExperts/GreenExperts';
 import { Link } from 'react-router';
+import ContactUs from '../Components/ContactUs/ContactUs';
 
 const Home = () => {
   return (
@@ -50,6 +51,8 @@ const Home = () => {
 
         <GreenExperts></GreenExperts>
       </Container>
+
+      <ContactUs></ContactUs>
     </>
   );
 };

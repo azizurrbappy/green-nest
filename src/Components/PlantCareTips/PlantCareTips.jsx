@@ -3,7 +3,7 @@ import React from 'react';
 const PlantCareTips = () => {
   return (
     <>
-      <section className="mt-20 px-4">
+      <section className="mt-30 px-4">
         <div className="mb-12">
           <h2 className="text-center text-3xl font-bold mb-3">
             Plant Care Tips
