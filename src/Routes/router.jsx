@@ -9,6 +9,9 @@ import Login from '../Pages/Login';
 import PrivetRoute from '../PrivetRoute/PrivetRoute';
 import Profile from '../Pages/Profile';
 import AboutUs from '../Pages/AboutUs';
+import Services from '../Pages/Services';
+import ContactUs from '../Pages/ContactUs';
+import PageNotFound from '../Pages/PageNotFound';
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +69,18 @@ export const router = createBrowserRouter([
         path: '/about-us',
         element: <AboutUs></AboutUs>,
       },
+      {
+        path: '/services',
+        element: <Services></Services>,
+      },
+      {
+        path: '/contact-us',
+        element: <ContactUs></ContactUs>,
+      },
     ],
+  },
+  {
+    path: '*',
+    element: <PageNotFound></PageNotFound>,
   },
 ]);
