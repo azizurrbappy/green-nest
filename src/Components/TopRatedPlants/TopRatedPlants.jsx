@@ -8,10 +8,10 @@ const TopRatedPlants = () => {
 
   return (
     <>
-      <div className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-x-7 gap-y-5 px-4 ">
+      <div className="w-fit mx-auto grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-8 px-4 ">
         {data ? (
           data
-            .slice(0, 6)
+            .slice(0, 8)
             .map(plant => (
               <TopRatedPlant
                 key={plant.plantId}

@@ -44,7 +44,7 @@ const AsideProfile = () => {
             <li>
               <Link
                 onClick={handleLogout}
-                className="text-sm font-medium hover:text-[#65A15A] duration-200"
+                className="text-sm font-medium hover:text-[#65A15A] duration-100"
               >
                 Logout
               </Link>

@@ -23,12 +23,12 @@ const Home = () => {
           </aside>
         </section>
 
-        <section className="my-10">
+        <section className="my-20">
           <div className="mb-10">
             <h2 className="text-center text-3xl font-bold mb-3">
               Top Rated Indoor Plants
             </h2>
-            <div className="w-30 mx-auto border-3 border-[#65A15A]"></div>
+            <div className="w-30 mx-auto border-3 border-[#65A15A] rounded-full"></div>
           </div>
 
           <div>
