@@ -1,0 +1,110 @@
+[
+  {
+    "plantId": 1,
+    "plantName": "Snake Plant",
+    "category": "Air Purifier",
+    "price": 1800,
+    "rating": 4.8,
+    "availableStock": 10,
+    "careLevel": "Easy",
+    "description": "A hardy plant that purifies indoor air and thrives in low light.",
+    "image": "https://foli.ca/cdn/shop/articles/Snake_2.png?v=1703734308&width=1100",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 2,
+    "plantName": "Peace Lily",
+    "category": "Flowering Plant",
+    "price": 2200,
+    "rating": 4.7,
+    "availableStock": 15,
+    "careLevel": "Medium",
+    "description": "Elegant white blooms with lush green leaves that help clean indoor air.",
+    "image": "https://cdn.mos.cms.futurecdn.net/qYNPupRnspGWPF4886Z7hB.jpg",
+    "providerName": "GreenNest Botanics"
+  },
+  {
+    "plantId": 3,
+    "plantName": "ZZ Plant",
+    "category": "Low Light Plant",
+    "price": 2500,
+    "rating": 4.9,
+    "availableStock": 8,
+    "careLevel": "Easy",
+    "description": "A nearly indestructible plant that thrives on neglect and low light.",
+    "image": "https://www.ugaoo.com/cdn/shop/files/1_af764eda-b091-4320-953d-e4de57387c54.jpg?v=1741698812&width=3840",
+    "providerName": "EcoLeaf Garden"
+  },
+  {
+    "plantId": 4,
+    "plantName": "Spider Plant",
+    "category": "Air Purifier",
+    "price": 1600,
+    "rating": 4.6,
+    "availableStock": 20,
+    "careLevel": "Easy",
+    "description": "An attractive plant that helps remove indoor toxins and grows baby offshoots.",
+    "image": "https://i0.wp.com/www.gardening4joy.com/wp-content/uploads/2021/01/Caring-for-spider-plants-Main.jpg?resize=1080%2C904&ssl=1",
+    "providerName": "FreshAir Flora"
+  },
+  {
+    "plantId": 5,
+    "plantName": "Aloe Vera",
+    "category": "Medicinal Plant",
+    "price": 1900,
+    "rating": 4.8,
+    "availableStock": 12,
+    "careLevel": "Easy",
+    "description": "A soothing succulent known for its skin-healing gel and air-purifying qualities.",
+    "image": "https://apps.rhs.org.uk/plantselectorimages/detail/visi26658.jpg",
+    "providerName": "NatureCore Plants"
+  },
+  {
+    "plantId": 6,
+    "plantName": "Rubber Plant",
+    "category": "Foliage Plant",
+    "price": 2800,
+    "rating": 4.5,
+    "availableStock": 9,
+    "careLevel": "Medium",
+    "description": "A bold indoor plant with large glossy leaves that adds a modern touch to decor.",
+    "image": "https://abeautifulmess.com/wp-content/uploads/2023/06/rubbertree-1.jpg",
+    "providerName": "Leaf & Root Co."
+  },
+  {
+    "plantId": 7,
+    "plantName": "Boston Fern",
+    "category": "Hanging Plant",
+    "price": 2100,
+    "rating": 4.4,
+    "availableStock": 14,
+    "careLevel": "Medium",
+    "description": "A lush, feathery fern perfect for hanging baskets and humid spaces.",
+    "image": "https://plantologyusa.com/cdn/shop/articles/boston-fern-care-guide-677073.png?v=1734995760&width=480",
+    "providerName": "UrbanGreen Studio"
+  },
+  {
+    "plantId": 8,
+    "plantName": "Pothos",
+    "category": "Trailing Plant",
+    "price": 1700,
+    "rating": 4.9,
+    "availableStock": 18,
+    "careLevel": "Easy",
+    "description": "A fast-growing vine with heart-shaped leaves that thrive in any light condition.",
+    "image": "https://media.houseandgarden.co.uk/photos/64bff5f4d6a55acd0397054e/1:1/w_1342,h_1342,c_limit/Screenshot%202023-07-25%20at%2017.17.10.png",
+    "providerName": "GreenNest Botanics"
+  },
+  {
+    "plantId": 9,
+    "plantName": "Monstera Deliciosa",
+    "category": "Tropical Plant",
+    "price": 3500,
+    "rating": 4.9,
+    "availableStock": 7,
+    "careLevel": "Medium",
+    "description": "Known as the Swiss cheese plant, it adds bold tropical vibes to any interior.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Monstera_deliciosa2.jpg",
+    "providerName": "EcoLeaf Garden"
+  }
+]

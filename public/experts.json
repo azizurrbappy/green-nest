@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Summer Rayne Oakes",
+    "specialization": "Houseplant Expert & Author of 'How to Make a Plant Love You'",
+    "image": "https://images.squarespace-cdn.com/content/v1/547908a6e4b0464e56d242dc/1417221350159-CO5RW128TL3H0N45XK90/Summer-Web.jpg?format=1500"
+  },
+  {
+    "id": 2,
+    "name": "Hilton Carter",
+    "specialization": "Indoor Jungle Designer & Author of 'Wild at Home'",
+    "image": "https://image.pbs.org/video-assets/Glo6hve-asset-mezzanine-16x9-0Exw9pX.jpg.fit.1280x720.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Darryl Cheng",
+    "specialization": "Plant Care Educator & Author of 'The New Plant Parent'",
+    "image": "https://m.media-amazon.com/images/S/amzn-author-media-prod/rr5loag3arltla83lc5io4p130.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Jane Perrone",
+    "specialization": "Host of 'On The Ledge' Podcast & Houseplant Journalist",
+    "image": "https://assets-eu-01.kc-usercontent.com/80a5f55d-e34a-015b-6d9c-d8b7bf8b6129/ae59055f-1203-4055-9e54-88833d645f24/Jane%20Perrone%20Bio.jpg?w=440&h=440&fit=crop&auto=format"
+  }
+]

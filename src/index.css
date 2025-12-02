@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Main */
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.check {
+  @apply border-1 border-red-500;
+}
+
+@import 'tailwindcss';
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+/* Navbar */
+.nav-links li {
+  @apply hover:text-[#65A15A];
+}
+
+.nav-links li .active {
+  @apply text-[#65A15A];
+}
