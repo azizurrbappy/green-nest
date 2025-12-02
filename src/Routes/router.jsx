@@ -8,6 +8,7 @@ import Signup from '../Pages/Signup';
 import Login from '../Pages/Login';
 import PrivetRoute from '../PrivetRoute/PrivetRoute';
 import Profile from '../Pages/Profile';
+import AboutUs from '../Pages/AboutUs';
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
             <Profile></Profile>
           </PrivetRoute>
         ),
+      },
+      {
+        path: '/about-us',
+        element: <AboutUs></AboutUs>,
       },
     ],
   },
