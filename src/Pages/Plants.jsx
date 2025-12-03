@@ -3,6 +3,7 @@ import Container from '../Components/Container/Container';
 import { ListFilter, Search } from 'lucide-react';
 import useAxios from '../Hooks/useAxios';
 import Plant from '../Components/Plant/Plant';
+import { DotLoader } from 'react-spinners';
 
 const Plants = () => {
   const categories = [
@@ -24,12 +25,25 @@ const Plants = () => {
   const axios = useAxios();
   const [categoryValue, setCategoryValue] = useState([]);
   const [plants, setPlants] = useState();
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     axios(`/plants?category=${categoryValue}`).then(res => setPlants(res.data));
   }, [categoryValue]);
 
-  console.log(plants);
+  const filteredPlants = (plants || []).filter(plant => {
+    const matchesCategory =
+      categoryValue.length === 0 ||
+      (plant.category && categoryValue.includes(plant.category));
+
+    const plantName = plant.plantName || '';
+    const matchesSearch = plantName
+      .toString()
+      .toLowerCase()
+      .includes((searchTerm || '').toLowerCase());
+
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <>
@@ -49,7 +63,12 @@ const Plants = () => {
             <form className="flex items-center gap-4 mb-4">
               <label className="input outline-0 rounded-full bg-transparent">
                 <Search size={18} className="text-gray-500"></Search>
-                <input type="search" placeholder="Search plants" />
+                <input
+                  type="search"
+                  value={searchTerm}
+                  onChange={e => setSearchTerm(e.target.value)}
+                  placeholder="Search plants"
+                />
               </label>
             </form>
 
@@ -137,7 +156,12 @@ const Plants = () => {
 
                 <label className="input input-sm outline-0 rounded-full bg-transparent hidden lg:flex">
                   <Search size={18} className="text-gray-500"></Search>
-                  <input type="search" placeholder="Search plants" />
+                  <input
+                    type="search"
+                    value={searchTerm}
+                    onChange={e => setSearchTerm(e.target.value)}
+                    placeholder="Search plants"
+                  />
                 </label>
               </form>
 
@@ -148,11 +172,17 @@ const Plants = () => {
 
             {/* Content */}
             <section className="mt-4 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 grid-cols-2 gap-4">
-              {plants
-                ? plants.map((plant, index) => (
-                    <Plant plant={plant} key={index}></Plant>
-                  ))
-                : ''}
+              {filteredPlants ? (
+                filteredPlants.map((plant, index) => (
+                  <Plant plant={plant} key={index}></Plant>
+                ))
+              ) : (
+                <div
+                  className={`col-span-full flex items-center justify-center h-60`}
+                >
+                  <DotLoader color="#65A15A" />
+                </div>
+              )}
             </section>
           </section>
         </section>
