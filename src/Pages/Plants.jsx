@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from '../Components/Container/Container';
 import { ListFilter, Search } from 'lucide-react';
+import useAxios from '../Hooks/useAxios';
+import Plant from '../Components/Plant/Plant';
 
 const Plants = () => {
-  const [categoryValue, setCategoryValue] = useState();
-
   const categories = [
     'Air Purifier',
     'Flowering Plant',
@@ -21,13 +21,15 @@ const Plants = () => {
     'Foliage Plant',
   ];
 
-  const handleCategory = e => {
-    e.preventDefault();
+  const axios = useAxios();
+  const [categoryValue, setCategoryValue] = useState([]);
+  const [plants, setPlants] = useState();
 
-    console.log(e.target.category.value);
-  };
+  useEffect(() => {
+    axios(`/plants?category=${categoryValue}`).then(res => setPlants(res.data));
+  }, [categoryValue]);
 
-  console.log(categoryValue);
+  console.log(plants);
 
   return (
     <>
@@ -43,6 +45,13 @@ const Plants = () => {
           ></label>
           <ul className="menu bg-[#f0f3f0] min-h-full w-80 p-4">
             {/* Sidebar Content */}
+
+            <form className="flex items-center gap-4 mb-4">
+              <label className="input outline-0 rounded-full bg-transparent">
+                <Search size={18} className="text-gray-500"></Search>
+                <input type="search" placeholder="Search plants" />
+              </label>
+            </form>
 
             <aside className="bg-[#f0f3f0] rounded-md">
               <h4 className="px-4 text-[17px] text-center font-medium">
@@ -75,13 +84,15 @@ const Plants = () => {
       <Container className="my-10 px-4 lg:px-0">
         <section>
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-3">All Plants</h2>
+            <h2 className="text-3xl font-bold mb-3">
+              All Plants ({plants?.length})
+            </h2>
             <div className="w-16 border-3 border-[#65A15A] rounded-full"></div>
           </div>
         </section>
 
         <section className="grid grid-cols-12 gap-10">
-          <aside className="bg-[#f0f3f0] rounded-md py-4 col-span-3 hidden lg:block">
+          <aside className="bg-[#f0f3f0] rounded-md py-4 col-span-3 hidden lg:block h-fit">
             <h4 className="px-4 text-[17px] text-center font-medium">
               Category
             </h4>
@@ -89,13 +100,22 @@ const Plants = () => {
             <div className="border-b border-gray-200 my-3.5"></div>
 
             <section className="px-4">
-              <form onSubmit={handleCategory} className="flex flex-col gap-2.5">
+              <form className="flex flex-col gap-2.5">
                 {categories.map((category, index) => (
                   <label key={index} className="label text-[15px] text-black">
                     <input
                       type="checkbox"
                       value={category}
-                      onChange={e => setCategoryValue(e.target.value)}
+                      onChange={e => {
+                        const value = e.target.value;
+                        const checked = e.target.checked;
+
+                        if (checked) {
+                          setCategoryValue(value);
+                        } else {
+                          setCategoryValue([]);
+                        }
+                      }}
                       className="checkbox checkbox-xs rounded-full text-[#65a15a]"
                     />
                     {category}
@@ -115,7 +135,7 @@ const Plants = () => {
                   <ListFilter /> Filter
                 </label>
 
-                <label className="input input-sm outline-0 rounded-full bg-transparent">
+                <label className="input input-sm outline-0 rounded-full bg-transparent hidden lg:flex">
                   <Search size={18} className="text-gray-500"></Search>
                   <input type="search" placeholder="Search plants" />
                 </label>
@@ -125,6 +145,15 @@ const Plants = () => {
                 <p className="text-gray-600 font-medium text-sm">Sort by:</p>
               </div>
             </div>
+
+            {/* Content */}
+            <section className="mt-4 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 grid-cols-2 gap-4">
+              {plants
+                ? plants.map((plant, index) => (
+                    <Plant plant={plant} key={index}></Plant>
+                  ))
+                : ''}
+            </section>
           </section>
         </section>
       </Container>
