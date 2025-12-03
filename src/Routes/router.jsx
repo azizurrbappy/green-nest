@@ -43,11 +43,6 @@ export const router = createBrowserRouter([
       {
         path: '/plants',
         element: <Plants></Plants>,
-        HydrateFallback: Loading,
-        loader: async () => {
-          const res = await fetch('../plants.json');
-          return res.json();
-        },
       },
       {
         path: '/auth/signup',

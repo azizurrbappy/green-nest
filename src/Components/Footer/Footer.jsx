@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <>
       <footer className="bg-[#F3F3F3] text-base-content p-10">
-        <Container className="footer sm:footer-horizontal">
+        <Container className="footer md:footer-horizontal">
           <aside>
             <Link to="/" className="flex items-center gap-1.5">
               <img src={GreenNest} alt="" className="w-13" />
