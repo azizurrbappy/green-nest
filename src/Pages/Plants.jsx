@@ -23,27 +23,44 @@ const Plants = () => {
   ];
 
   const axios = useAxios();
-  const [categoryValue, setCategoryValue] = useState([]);
+  const [categoryValue, setCategoryValue] = useState('');
   const [plants, setPlants] = useState();
   const [searchTerm, setSearchTerm] = useState('');
+  const [sort, setSort] = useState('');
+  const [order, setOrder] = useState('');
 
   useEffect(() => {
-    axios(`/plants?category=${categoryValue}`).then(res => setPlants(res.data));
-  }, [categoryValue]);
+    axios(`/plants?category=${categoryValue}&sort=${sort}&order=${order}`).then(
+      res => setPlants(res.data)
+    );
+  }, [categoryValue, sort, order]);
 
-  const filteredPlants = (plants || []).filter(plant => {
-    const matchesCategory =
-      categoryValue.length === 0 ||
-      (plant.category && categoryValue.includes(plant.category));
+  // const filteredPlants = (plants || []).filter(plant => {
+  //   const matchesCategory =
+  //     categoryValue.length === 0 ||
+  //     (plant.category && categoryValue.includes(plant.category));
 
-    const plantName = plant.plantName || '';
-    const matchesSearch = plantName
-      .toString()
-      .toLowerCase()
-      .includes((searchTerm || '').toLowerCase());
+  //   const plantName = plant.plantName || '';
+  //   const matchesSearch = plantName
+  //     .toString()
+  //     .toLowerCase()
+  //     .includes((searchTerm || '').toLowerCase());
 
-    return matchesCategory && matchesSearch;
-  });
+  //   return matchesCategory && matchesSearch;
+  // });
+
+  const handleSort = e => {
+    const getSortValue = e.target.value;
+    console.log(getSortValue);
+
+    if (getSortValue === 'default') {
+      setSort('');
+      setOrder('');
+    } else {
+      setSort(getSortValue.split('-')[0]);
+      setOrder(getSortValue.split('-')[1]);
+    }
+  };
 
   return (
     <>
@@ -166,14 +183,23 @@ const Plants = () => {
               </form>
 
               <div className="">
-                <p className="text-gray-600 font-medium text-sm">Sort by:</p>
+                <select
+                  onChange={handleSort}
+                  defaultValue="Sort by: Price"
+                  className="select select-sm bg-[#f0f3f0] outline-0 rounded-full after:right-6"
+                >
+                  <option disabled={true}>Sort by: Price</option>
+                  <option value="default">Default</option>
+                  <option value="price-desc">Price: High - Low</option>
+                  <option value="price-asc">Price: Low - High</option>
+                </select>
               </div>
             </div>
 
             {/* Content */}
             <section className="mt-4 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 grid-cols-2 gap-4">
-              {filteredPlants ? (
-                filteredPlants.map((plant, index) => (
+              {plants ? (
+                plants.map((plant, index) => (
                   <Plant plant={plant} key={index}></Plant>
                 ))
               ) : (

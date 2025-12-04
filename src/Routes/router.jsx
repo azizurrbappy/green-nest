@@ -21,11 +21,6 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
-        HydrateFallback: Loading,
-        loader: async () => {
-          const res = await fetch('../plants.json');
-          return res.json();
-        },
       },
       {
         path: '/plant/:id',
@@ -34,11 +29,6 @@ export const router = createBrowserRouter([
             <PlantDetails></PlantDetails>
           </PrivetRoute>
         ),
-        HydrateFallback: Loading,
-        loader: async () => {
-          const res = await fetch('../plants.json');
-          return res.json();
-        },
       },
       {
         path: '/plants',

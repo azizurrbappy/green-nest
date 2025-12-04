@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Rating, Star } from '@smastrom/react-rating';
-
 import '@smastrom/react-rating/style.css';
 
-const TopRatedPlant = ({ image, title, price, rating, id, description }) => {
+const TopRatedPlant = ({ plant }) => {
   const ratingStyle = {
     itemShapes: Star,
     activeFillColor: '#65a15a',
     inactiveFillColor: '#d1d5db',
   };
+
+  const { _id, plantName, image, description, price, rating } = plant;
 
   return (
     <>
@@ -20,7 +21,7 @@ const TopRatedPlant = ({ image, title, price, rating, id, description }) => {
         ></figure>
         <div className="card-body py-5 px-4 ">
           <div className="flex justify-between items-center">
-            <h2 className="card-title uppercase text-base">{title}</h2>
+            <h2 className="card-title uppercase text-base">{plantName}</h2>
 
             <h4 className="text-[#65A15A] card-title">৳{price}</h4>
           </div>
@@ -47,7 +48,7 @@ const TopRatedPlant = ({ image, title, price, rating, id, description }) => {
 
           <div className="card-actions justify-end">
             <Link
-              to={`/plant/${id}`}
+              to={`/plant/${_id}`}
               className="btn w-full bg-[#65A15A] border-0 text-white font-medium mt-2"
             >
               View Details

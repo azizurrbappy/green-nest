@@ -22,3 +22,12 @@
 .nav-links li .active {
   @apply text-[#65A15A];
 }
+
+/* Select .custom-select {
+  @apply border border-gray-300 px-2.5 py-1 rounded-full w-fit;
+}
+.custom-select option {
+  font-weight: normal;
+  background: white;
+  color: #1f2937;
+} */
