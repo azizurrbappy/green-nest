@@ -43,23 +43,8 @@ const Plants = () => {
       });
   }, [categoryValue, sort, order]);
 
-  // const filteredPlants = (plants || []).filter(plant => {
-  //   const matchesCategory =
-  //     categoryValue.length === 0 ||
-  //     (plant.category && categoryValue.includes(plant.category));
-
-  //   const plantName = plant.plantName || '';
-  //   const matchesSearch = plantName
-  //     .toString()
-  //     .toLowerCase()
-  //     .includes((searchTerm || '').toLowerCase());
-
-  //   return matchesCategory && matchesSearch;
-  // });
-
   const handleSort = e => {
     const getSortValue = e.target.value;
-    console.log(getSortValue);
 
     if (getSortValue === 'default') {
       setSort('');
@@ -69,6 +54,23 @@ const Plants = () => {
       setOrder(getSortValue.split('-')[1]);
     }
   };
+
+  const filteredPlants = plants?.filter(plant => {
+    const modifiedSearchTerm = searchTerm.toLowerCase();
+
+    if (!modifiedSearchTerm.trim()) {
+      return true;
+    }
+
+    try {
+      const regex = new RegExp(searchTerm.trim(), 'gi');
+      return regex.test(plant.plantName);
+    } catch (e) {
+      return plant.plantName.toLowerCase().includes(modifiedSearchTerm);
+    }
+  });
+
+  console.log(filteredPlants);
 
   return (
     <>
@@ -206,18 +208,19 @@ const Plants = () => {
 
             {/* Content */}
             <section className="mt-4 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 grid-cols-2 gap-4">
-              {loading && (
+              {loading ? (
                 <div
                   className={`col-span-full flex items-center justify-center h-60`}
                 >
                   <DotLoader color="#65A15A" />
                 </div>
-              )}
-
-              {plants &&
-                plants.map((plant, index) => (
+              ) : filteredPlants ? (
+                filteredPlants?.map((plant, index) => (
                   <Plant plant={plant} key={index}></Plant>
-                ))}
+                ))
+              ) : (
+                'hlo'
+              )}
             </section>
           </section>
         </section>

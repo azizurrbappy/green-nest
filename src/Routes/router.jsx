@@ -23,11 +23,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/plant/:id',
-        element: (
-          <PrivetRoute>
-            <PlantDetails></PlantDetails>
-          </PrivetRoute>
-        ),
+        element: <PlantDetails></PlantDetails>,
       },
       {
         path: '/plants',
