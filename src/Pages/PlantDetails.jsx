@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import Container from '../Components/Container/Container';
 import { toast } from 'react-toastify';
-import Loading from '../Components/Loading/loading';
 
 const PlantDetails = () => {
   const getPlantId = useParams();
@@ -83,7 +82,7 @@ const PlantDetails = () => {
             </div>
           </section>
         ) : (
-          <Loading></Loading>
+          ''
         )}
       </Container>
     </>
