@@ -3,7 +3,6 @@ import MainLayout from '../Layouts/MainLayout';
 import Home from '../Pages/Home';
 import PlantDetails from '../Pages/PlantDetails';
 import Plants from '../Pages/Plants';
-import Loading from '../Components/Loading/loading';
 import Signup from '../Pages/Signup';
 import Login from '../Pages/Login';
 import PrivetRoute from '../PrivetRoute/PrivetRoute';

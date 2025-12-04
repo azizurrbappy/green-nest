@@ -28,11 +28,19 @@ const Plants = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sort, setSort] = useState('');
   const [order, setOrder] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    axios(`/plants?category=${categoryValue}&sort=${sort}&order=${order}`).then(
-      res => setPlants(res.data)
-    );
+    setLoading(true);
+    axios(`/plants?category=${categoryValue}&sort=${sort}&order=${order}`)
+      .then(res => {
+        setPlants(res.data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.log(err.dir);
+        setLoading(false);
+      });
   }, [categoryValue, sort, order]);
 
   // const filteredPlants = (plants || []).filter(plant => {
@@ -198,17 +206,18 @@ const Plants = () => {
 
             {/* Content */}
             <section className="mt-4 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 grid-cols-2 gap-4">
-              {plants ? (
-                plants.map((plant, index) => (
-                  <Plant plant={plant} key={index}></Plant>
-                ))
-              ) : (
+              {loading && (
                 <div
                   className={`col-span-full flex items-center justify-center h-60`}
                 >
                   <DotLoader color="#65A15A" />
                 </div>
               )}
+
+              {plants &&
+                plants.map((plant, index) => (
+                  <Plant plant={plant} key={index}></Plant>
+                ))}
             </section>
           </section>
         </section>
